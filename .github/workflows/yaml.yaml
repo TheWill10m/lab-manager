@@ -1,0 +1,22 @@
+---
+name: Yaml Checks
+
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - "main"
+    paths:
+      - "**.yaml"
+
+  pull_request:
+
+jobs:
+  lint:
+    name: Yaml lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Lint
+        uses: ibiqlik/action-yamllint@v3
