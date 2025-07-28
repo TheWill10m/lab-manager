@@ -1,0 +1,24 @@
+---
+name: Python Checks
+
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - main
+    paths:
+      - "**.py"
+
+  pull_request:
+
+jobs:
+  black-linter:
+    name: black linter
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Black check
+        uses: psf/black@stable
+        with:
+          options: "--check --verbose"
