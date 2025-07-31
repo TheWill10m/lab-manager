@@ -9,6 +9,7 @@ on:  # yamllint disable-line rule:truthy
       - "**.yaml"
 
   pull_request:
+  workflow_dispatch:
 
 jobs:
   lint:

@@ -9,6 +9,7 @@ on:  # yamllint disable-line rule:truthy
       - "**.py"
 
   pull_request:
+  workflow_dispatch:
 
 jobs:
   black-linter:
