@@ -1,1 +1,3 @@
-pynutclient==2.8.2
+pynutclient>=2.8.2
+requests>=2.32.4
+types-requests>=2.32.4.20250611
