@@ -33,7 +33,8 @@ jobs:
 
       - name: MyPy check
         uses: jpetrucciani/mypy-check@master
+        env:
+          MYPYPATH: $PWD/stubs
         with:
           path: app/
           requirements_file: requirements.txt
-          mypy_flags: '--config-file .mypy.ini'
