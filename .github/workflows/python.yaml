@@ -34,7 +34,7 @@ jobs:
       - name: MyPy check
         uses: jpetrucciani/mypy-check@master
         env:
-          MYPYPATH: ${GITHUB_WORKSPACE}/stubs
+          MYPYPATH: /github/workspace/stubs
         with:
           path: app/
           requirements_file: requirements.txt
