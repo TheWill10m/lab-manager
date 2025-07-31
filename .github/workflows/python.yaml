@@ -7,6 +7,7 @@ on:  # yamllint disable-line rule:truthy
       - main
     paths:
       - "**.py"
+      - "**.pyi"
 
   pull_request:
   workflow_dispatch:
@@ -31,10 +32,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: MyPy check
-        uses: jpetrucciani/mypy-check@master
-        env:
-          MYPYPATH: /github/workspace/stubs
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          path: app/
-          requirements_file: requirements.txt
+          python-version: "3.12"
+
+      - name: Install mypy
+        run: pip install mypy
+
+      - name: MyPy check
+        run: MYPYPATH="stubs" mypy app/
