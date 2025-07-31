@@ -36,3 +36,4 @@ jobs:
         with:
           path: app/
           requirements_file: requirements.txt
+          mypy_flags: '--config-file .mypy.ini'
